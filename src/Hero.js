@@ -1,7 +1,11 @@
 import React from 'react';
 import phoneImg from './images/phone.svg';
 
+import { useGlobalContext } from './context';
+
 const Hero = () => {
+  const data = useGlobalContext();
+  console.log(data, 'yes');
   return (
     <section className="hero">
       <div className="hero-center">
@@ -15,11 +19,7 @@ const Hero = () => {
           <button className="btn">Start now</button>
         </article>
         <article className="hero-images">
-          <img
-            src="/static/media/phone.58d7e3d6.svg"
-            className="phone-img"
-            alt="phone"
-          />
+          <img src={phoneImg} className="phone-img" alt="phone" />
         </article>
       </div>
     </section>
