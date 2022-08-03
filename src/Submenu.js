@@ -26,7 +26,7 @@ const Submenu = () => {
           {links.map((link, index) => {
             const { label, icon, url } = link;
             return (
-              <a href="/products" key={`desktop-link-${url}`}>
+              <a href="/products" key={`desktop-link-${index}`}>
                 {icon}
                 {label}
               </a>
