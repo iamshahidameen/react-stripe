@@ -4,25 +4,52 @@ import { FaBars } from 'react-icons/fa';
 import { useGlobalContext } from './context';
 
 const Navbar = () => {
-  const { openSidebar } = useGlobalContext();
+  const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+  const displaySubmenu = (e) => {
+    const page = e.target.textContent;
+    const tempBtn = e.target.getBoundingClientRect();
+    console.log(tempBtn);
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+    console.log(center);
+    openSubmenu(page, { center, bottom });
+  };
   return (
     <nav className="nav">
       <div className="nav-center">
         <div className="nav-header">
-          <img src={logo} className="nav-logo" alt="" />
+          <img src={logo} className="nav-logo" alt="Stripe" />
           <button className="btn toggle-btn" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
         <ul className="nav-links">
           <li>
-            <button className="link-btn">products</button>
+            <button
+              className="link-btn"
+              onMouseOver={displaySubmenu}
+              onMouseOut={closeSubmenu}
+            >
+              products
+            </button>
           </li>
           <li>
-            <button className="link-btn">developers</button>
+            <button
+              className="link-btn"
+              onMouseOver={displaySubmenu}
+              onMouseOut={closeSubmenu}
+            >
+              developers
+            </button>
           </li>
           <li>
-            <button className="link-btn">company</button>
+            <button
+              className="link-btn"
+              onMouseOver={displaySubmenu}
+              onMouseOut={closeSubmenu}
+            >
+              company
+            </button>
           </li>
         </ul>
         <button className="btn signin-btn">Sign in</button>

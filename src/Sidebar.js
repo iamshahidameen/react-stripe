@@ -13,16 +13,16 @@ const Sidebar = () => {
           <FaTimes />
         </button>
         <div className="sidebar-links">
-          {sublinks.map((pageData) => {
+          {sublinks.map((pageData, index) => {
             const { page, links } = pageData;
             return (
-              <article>
+              <article key={`article-${index}`}>
                 <h4>{page}</h4>
                 <div className="sidebar-sublinks">
-                  {links.map((link) => {
+                  {links.map((link, index) => {
                     const { label, icon, url } = link;
                     return (
-                      <a href={url}>
+                      <a key={`link-${index}`} href={url}>
                         {icon}
                         {label}
                       </a>
