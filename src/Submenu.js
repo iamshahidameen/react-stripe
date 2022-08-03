@@ -18,7 +18,11 @@ const Submenu = () => {
     <aside className={`submenu ${isSubmenuOpen && 'show'}`} ref={container}>
       <section>
         <h4>{page}</h4>
-        <div className="submenu-center col-3">
+        <div
+          className={`submenu-center col-${
+            links.length > 3 ? 4 : links.length
+          }`}
+        >
           {links.map((link, index) => {
             const { label, icon, url } = link;
             return (
